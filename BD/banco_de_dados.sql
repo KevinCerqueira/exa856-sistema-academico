@@ -129,8 +129,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sisacademico`.`adm` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(20) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
+  `usuario` VARCHAR(20) NOT NULL,
+  `senha` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `ID_UNIQUE` (`ID` ASC))
 ENGINE = InnoDB;
@@ -141,6 +141,6 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
-INSERT INTO adm (username, password) VALUES ('exa856', md5('pcemelhorqueconsole'));
-INSERT INTO adm (username, password) VALUES ('profClaudio', md5('analisedesistemas856'));
-INSERT INTO adm (username, password) VALUES ('grupoElevador', md5('analisedesistemas856'));
+INSERT INTO adm (usuario, senha) VALUES ('exa856', md5('pcemelhorqueconsole'));
+INSERT INTO adm (usuario, senha) VALUES ('profClaudio', md5('analisedesistemas856'));
+INSERT INTO adm (usuario, senha) VALUES ('grupoElevador', md5('analisedesistemas856'));
