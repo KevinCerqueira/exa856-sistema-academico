@@ -1,2 +1,2 @@
-# exa856-sistema-academico
-Sistema de Cadastro Acadêmico
+# Sistema de Cadastro Acadêmico
+
