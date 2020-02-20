@@ -105,6 +105,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sisacademico`.`aluno` (
   `usuario_ID` INT UNSIGNED NOT NULL,
+  `data_nascimento` VARCHAR(10),
+  `nome_pai` VARCHAR(60),
+  `nome_mae` VARCHAR(60),
   `curso_ID` INT UNSIGNED NOT NULL,
   INDEX `fk_aluno_usuario1_idx` (`usuario_ID` ASC),
   INDEX `fk_aluno_curso1_idx` (`curso_ID` ASC),
