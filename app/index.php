@@ -31,6 +31,11 @@ include ('_head.php');
                 <img id="logo" src="logo.png" alt="SysAcademy">
                 <p class="h3 text-dark">Sistema Acadêmico</p>
                 <p class="">Olá! Insira seu usuário e senha disponibilizado por nós.</p>
+                <?php if(isset($_SESSION['invalid'])):?>
+                    <div class="alert alert-danger" role="alert">
+                        Usuário e/ou Senha incorretos.
+                    </div>
+                <?php unset($_SESSION['invalid']); endif;?>
                 <form action="login.php" method="post">
                     <div class="form-group">
                         <input type="text" name="usuario" id="Usuario" class="form-control" placeholder="Usuario" required>
@@ -42,11 +47,6 @@ include ('_head.php');
                         <button type="submit" class="btn btn-secondary rounded">Entrar</button>
                     </div>
                 </form>
-                <?php if(isset($_SESSION['invalid'])):?>
-                    <div class="alert alert-danger" role="alert">
-                        <strong>Usuário e/ou Senha incorretos.</strong>
-                    </div>
-                <?php unset($_SESSION['invalid']); endif;?>
             </div>
         </div>
     </div>
