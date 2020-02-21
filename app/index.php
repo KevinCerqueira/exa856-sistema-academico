@@ -4,15 +4,9 @@ if (isset($_SESSION['ID'])) {
     header('Location: dashboard.php');
     exit();
 }
-include '_head.php';
+include ('_head.php');
 ?>
 <style>
-    .border-20{
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        border-top-right-radius: 20px;
-        border-top-left-radius: 20px;
-    }
     #corpo{
         /* margin-top: 10%; */
         padding-right: 30%;
@@ -38,7 +32,7 @@ include '_head.php';
                         <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success rounded">Login</button>
+                        <button type="submit" class="btn btn-secondary rounded">Entrar</button>
                     </div>
                 </form>
             </div>

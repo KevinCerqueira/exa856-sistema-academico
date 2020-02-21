@@ -143,4 +143,4 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO adm (usuario, senha) VALUES ('exa856', md5('pcemelhorqueconsole'));
 INSERT INTO adm (usuario, senha) VALUES ('profClaudio', md5('analisedesistemas856'));
-INSERT INTO adm (usuario, senha) VALUES ('grupoElevador', md5('analisedesistemas856'));
+INSERT INTO adm (usuario, senha) VALUES ('grupoAvaliador', md5('avaliador856'));
