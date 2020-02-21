@@ -2,6 +2,14 @@
 include('_head.php');
 include('autenticator.php');
 ?>
+<style>
+    @media only screen and (max-width: 999px) {
+        #corpo{
+            /* margin-top: 10%; */
+            padding: 3% !important;
+        }
+    }
+</style>
 <title>Dashboard</title>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
@@ -21,7 +29,7 @@ include('autenticator.php');
             </div>
         </div>
     </nav>
-    <div class="container-fluid p-5">
+    <div id="corpo" class="container-fluid p-5">
         <div class="container-fluid bg-white border-20 p-3">
             <?php
                 if($_SESSION['NAME'] == "profClaudio"):
@@ -30,7 +38,7 @@ include('autenticator.php');
             <?php
                 elseif($_SESSION['NAME'] == "grupoElevador"):
             ?>
-                <p class="h1">Olá, <strong>pessoal do grupo Elevador!</strong></p>
+                <p class="h1">Olá, <strong>grupo Avaliador!</strong></p>
             <?php
                 elseif($_SESSION['NAME'] == "exa856"):
             ?>

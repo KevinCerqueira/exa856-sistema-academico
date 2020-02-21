@@ -3,15 +3,13 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema sisacademico
+-- Schema epiz_25231414_sisacademico
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `sisacademico` DEFAULT CHARACTER SET utf8 ;
-USE `sisacademico` ;
 
 -- -----------------------------------------------------
--- Table `sisacademico`.`endereco`
+-- Table `epiz_25231414_sisacademico`.`endereco`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sisacademico`.`endereco` (
+CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`endereco` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `cep` VARCHAR(9) NOT NULL,
   `logradouro` VARCHAR(45) NOT NULL,
@@ -24,32 +22,31 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sisacademico`.`usuario`
+-- Table `epiz_25231414_sisacademico`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sisacademico`.`usuario` (
+CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`usuario` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(15) NOT NULL,
   `sobrenome` VARCHAR(30) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `CPF` VARCHAR(14) NOT NULL,
   `endereco_ID` INT UNSIGNED NOT NULL,
-  `tipo_usuario_ID` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC),
   INDEX `fk_usuario_endereco_idx` (`endereco_ID` ASC),
   CONSTRAINT `fk_usuario_endereco`
     FOREIGN KEY (`endereco_ID`)
-    REFERENCES `sisacademico`.`endereco` (`ID`)
+    REFERENCES `epiz_25231414_sisacademico`.`endereco` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sisacademico`.`instituicao`
+-- Table `epiz_25231414_sisacademico`.`instituicao`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sisacademico`.`instituicao` (
+CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`instituicao` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `endereco_ID` INT UNSIGNED NOT NULL,
@@ -58,16 +55,16 @@ CREATE TABLE IF NOT EXISTS `sisacademico`.`instituicao` (
   INDEX `fk_instituicao_endereco1_idx` (`endereco_ID` ASC),
   CONSTRAINT `fk_instituicao_endereco1`
     FOREIGN KEY (`endereco_ID`)
-    REFERENCES `sisacademico`.`endereco` (`ID`)
+    REFERENCES `epiz_25231414_sisacademico`.`endereco` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sisacademico`.`departamento`
+-- Table `epiz_25231414_sisacademico`.`departamento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sisacademico`.`departamento` (
+CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`departamento` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `instituicao_ID` INT UNSIGNED NOT NULL,
@@ -76,16 +73,16 @@ CREATE TABLE IF NOT EXISTS `sisacademico`.`departamento` (
   INDEX `fk_departamento_instituicao1_idx` (`instituicao_ID` ASC),
   CONSTRAINT `fk_departamento_instituicao1`
     FOREIGN KEY (`instituicao_ID`)
-    REFERENCES `sisacademico`.`instituicao` (`ID`)
+    REFERENCES `epiz_25231414_sisacademico`.`instituicao` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sisacademico`.`curso`
+-- Table `epiz_25231414_sisacademico`.`curso`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sisacademico`.`curso` (
+CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`curso` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `departamento_ID` INT UNSIGNED NOT NULL,
@@ -94,16 +91,16 @@ CREATE TABLE IF NOT EXISTS `sisacademico`.`curso` (
   INDEX `fk_curso_departamento1_idx` (`departamento_ID` ASC),
   CONSTRAINT `fk_curso_departamento1`
     FOREIGN KEY (`departamento_ID`)
-    REFERENCES `sisacademico`.`departamento` (`ID`)
+    REFERENCES `epiz_25231414_sisacademico`.`departamento` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sisacademico`.`aluno`
+-- Table `epiz_25231414_sisacademico`.`aluno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sisacademico`.`aluno` (
+CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`aluno` (
   `usuario_ID` INT UNSIGNED NOT NULL,
   `data_nascimento` VARCHAR(10),
   `nome_pai` VARCHAR(60),
@@ -113,21 +110,21 @@ CREATE TABLE IF NOT EXISTS `sisacademico`.`aluno` (
   INDEX `fk_aluno_curso1_idx` (`curso_ID` ASC),
   CONSTRAINT `fk_aluno_usuario1`
     FOREIGN KEY (`usuario_ID`)
-    REFERENCES `sisacademico`.`usuario` (`ID`)
+    REFERENCES `epiz_25231414_sisacademico`.`usuario` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_aluno_curso1`
     FOREIGN KEY (`curso_ID`)
-    REFERENCES `sisacademico`.`curso` (`ID`)
+    REFERENCES `epiz_25231414_sisacademico`.`curso` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sisacademico`.`adm`
+-- Table `epiz_25231414_sisacademico`.`adm`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sisacademico`.`adm` (
+CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`adm` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `usuario` VARCHAR(20) NOT NULL,
   `senha` VARCHAR(35) NOT NULL,

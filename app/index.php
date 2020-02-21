@@ -7,6 +7,13 @@ if (isset($_SESSION['ID'])) {
 include ('_head.php');
 ?>
 <style>
+    @media only screen and (max-width: 999px) {
+        #corpo{
+            /* margin-top: 10%; */
+            padding-right: 0% !important;
+            padding-left: 0% !important;
+        }
+    }
     #corpo{
         /* margin-top: 10%; */
         padding-right: 30%;
@@ -18,11 +25,11 @@ include ('_head.php');
 </style>
 <title>Login</title>
 <body class="bg-dark">
-    <div class="container-fluid p-3 text-center">
+    <div class="container-fluid p-2 text-center">
         <div id="corpo" class="">
-            <div id="form-corpo" class="p-4 bg-white shadow border-20 mt-5">
+            <div id="form-corpo" class="p-3 bg-white shadow border-20 mt-5">
                 <img id="logo" src="logo.png" alt="SysAcademy">
-                <p class="h1 text-dark">Sistema Acadêmico</p>
+                <p class="h3 text-dark">Sistema Acadêmico</p>
                 <p class="">Olá! Insira seu usuário e senha disponibilizado por nós.</p>
                 <form action="login.php" method="post">
                     <div class="form-group">
