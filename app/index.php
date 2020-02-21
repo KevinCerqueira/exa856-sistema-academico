@@ -42,6 +42,11 @@ include ('_head.php');
                         <button type="submit" class="btn btn-secondary rounded">Entrar</button>
                     </div>
                 </form>
+                <?php if(isset($_SESSION['invalid'])):?>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Usuário e/ou Senha incorretos.</strong>
+                    </div>
+                <?php unset($_SESSION['invalid']); endif;?>
             </div>
         </div>
     </div>
