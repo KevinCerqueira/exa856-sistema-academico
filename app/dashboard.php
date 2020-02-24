@@ -1,5 +1,5 @@
 <?php
-include('_head.php');
+include(dirname(__FILE__) . '/template/_head.php');
 include('autenticator.php');
 ?>
 <style>
