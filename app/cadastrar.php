@@ -64,12 +64,12 @@ renderTitle(
                 <div class="form-group col-md-3 p-1">
                     <label for="inputEstado">Estado</label>
                     <select id="inputEstado" class="form-control">
-                        <option selected>Selecione...</option>
-                        <option>Bahia</option>
-                        <option>Maranhão</option>
-                        <option>Sergipe</option>
-                        <option>Ceará</option>
-                        <option>Piauí</option>
+                        <option selected value="">Selecione...</option>
+                        <option value="BA">Bahia</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="CE">Ceará</option>
+                        <option value="PI">Piauí</option>
                     </select>
                     <div class="invalid-feedback">
                         Por favor, informe um estado válido.
@@ -107,3 +107,29 @@ renderTitle(
     border-top-left-radius: 20px
 }
 </style>
+
+<script>
+$('input').click(e => {
+    e.preventDefault()
+    
+    let inputs = $('input')
+    let selects = $('select')
+
+    for (input of inputs) {
+        if (input.value == '') {
+            $(`#${input.getAttribute("id")}`).addClass('is-invalid')
+        } else {
+            $(`#${input.getAttribute("id")}`).removeClass('is-invalid')
+            $(`#${input.getAttribute("id")}`).addClass('is-valid')
+        }
+    }
+    for(select of selects){
+        if (select.value == '') {
+            $(`#${select.getAttribute("id")}`).addClass('is-invalid')
+        } else {
+            $(`#${select.getAttribute("id")}`).removeClass('is-invalid')
+            $(`#${select.getAttribute("id")}`).addClass('is-valid')
+        }
+    }
+})
+</script>
