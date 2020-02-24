@@ -10,14 +10,17 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
 #sn {
     margin-top: 45%;
 }
-#segunda-parte{
-    margin-top: 5.2%;
+
+#segunda-parte {
+    margin-top: 5.4%;
 }
-.cabeca{
+
+.cabeca {
     margin-bottom: 6%;
 }
 </style>
 <title>SysAcademy - Cadastra-se</title>
+
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
         <a class="navbar-brand text-white" href="dashboard.php">
@@ -43,7 +46,8 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
             <div class="row">
                 <div class="col-md-6">
                     <div class="cabeca">
-                        <p class="h4 font-weight-light ms-auto ml-1 mt-1"><strong>Olá, estudante!</strong> falta pouco para concluir seu cadastro...</p>
+                        <p class="h4 font-weight-light ms-auto ml-1 mt-1"><strong>Olá, estudante!</strong> falta pouco
+                            para concluir seu cadastro...</p>
                     </div>
                     <form name="cadastrarAluno" autocomplete="off" method="POST" action="cadastrar_aluno.php">
                         <div class="form-row">
@@ -59,18 +63,32 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
+                                <label for="telefone">Telefone</label>
+                                
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">+55</div>
+                                    </div>
+                                    <input maxlength="16" minlength="16" type="text" name="telefone" id="telefone"
+                                    class="form-control" placeholder="(00) 0 0000-0000" aria-describedby="helpId"
+                                    required>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="nascimento">Data de nascimento</label>
                                 <input maxlength="10" minlength="10" type="text" name="nascimento" id="nascimento"
                                     class="form-control" placeholder="00/00/0000" aria-describedby="helpId" required>
                             </div>
-                            <div class="form-group col-md-4">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
                                 <label for="cpf">CPF</label>
                                 <input minlength="14" maxlength="14" type="text" name="cpf" id="cpf"
                                     class="form-control cpf-mask" placeholder="000.000.000-00" aria-describedby="helpId"
                                     required>
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label for="rg">RG</label>
                                 <input maxlength="12" minlength="12" type="text" name="rg" id="rg" class="form-control"
                                     placeholder="00.000.000-0" aria-describedby="helpId" required>
@@ -99,8 +117,8 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="numero">Número</label>
-                                <input minlength="1" maxlength="4" type="number" class="form-control" id="numero" placeholder="0000"
-                                    required>
+                                <input minlength="1" maxlength="4" type="number" class="form-control" id="numero"
+                                    placeholder="0000" required>
                             </div>
                             <div class="form-group col-md-2">
                                 <input type="checkbox" id="sn">
@@ -163,15 +181,16 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="senha">Senha</label>
-                            <input minlength="6" maxlength="8" type="password" class="form-control" id="senha" placeholder="Senha" required>
+                            <input minlength="6" maxlength="8" type="password" class="form-control" id="senha"
+                                placeholder="Senha" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="senha-v">Repita a senha</label>
-                            <input minlength="6" maxlength="8" type="password" class="form-control" id="senha-v" placeholder="Repita a senha"
-                                required>
+                            <input minlength="6" maxlength="8" type="password" class="form-control" id="senha-v"
+                                placeholder="Repita a senha" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success float-right">Cadastrar</button>
+                    <button type="submit" class="mt-4 btn btn-success float-right">Cadastrar</button>
                     </form>
                 </div>
             </div>
@@ -198,6 +217,9 @@ $('#numero').mask('0000', {
     reverse: true
 });
 $('#nascimento').mask('00/00/0000', {
+    reverse: true
+});
+$('#telefone').mask('00 0 0000-0000', {
     reverse: true
 });
 $('#sn').on("click", function(e) {
