@@ -5,17 +5,18 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema epiz_25231414_sisacademico
 -- -----------------------------------------------------
-
+CREATE SCHEMA IF NOT EXISTS `epiz_25231414_sisacademico` DEFAULT CHARACTER SET utf8 ;
+USE `epiz_25231414_sisacademico` ;
 -- -----------------------------------------------------
 -- Table `epiz_25231414_sisacademico`.`endereco`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`endereco` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `cep` VARCHAR(9) NOT NULL,
-  `logradouro` VARCHAR(45) NOT NULL,
+  `logradouro` VARCHAR(50) NOT NULL,
   `numero` INT NOT NULL,
-  `bairro` VARCHAR(45) NOT NULL,
-  `cidade` VARCHAR(45) NOT NULL,
+  `bairro` VARCHAR(50) NOT NULL,
+  `cidade` VARCHAR(50) NOT NULL,
   `estado` VARCHAR(2) NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
@@ -30,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`usuario` (
   `sobrenome` VARCHAR(30) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `CPF` VARCHAR(14) NOT NULL,
+  `RG` VARCHAR(12) NOT NULL,
   `endereco_ID` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
@@ -60,40 +62,14 @@ CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`instituicao` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `epiz_25231414_sisacademico`.`departamento`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`departamento` (
-  `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
-  `instituicao_ID` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC),
-  INDEX `fk_departamento_instituicao1_idx` (`instituicao_ID` ASC),
-  CONSTRAINT `fk_departamento_instituicao1`
-    FOREIGN KEY (`instituicao_ID`)
-    REFERENCES `epiz_25231414_sisacademico`.`instituicao` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `epiz_25231414_sisacademico`.`curso`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`curso` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
-  `departamento_ID` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC),
-  INDEX `fk_curso_departamento1_idx` (`departamento_ID` ASC),
-  CONSTRAINT `fk_curso_departamento1`
-    FOREIGN KEY (`departamento_ID`)
-    REFERENCES `epiz_25231414_sisacademico`.`departamento` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC))
 ENGINE = InnoDB;
 
 
@@ -103,8 +79,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`aluno` (
   `usuario_ID` INT UNSIGNED NOT NULL,
   `data_nascimento` VARCHAR(10),
-  `nome_pai` VARCHAR(60),
-  `nome_mae` VARCHAR(60),
+  `nome_pai` VARCHAR(100),
+  `nome_mae` VARCHAR(100),
+  `turno` ENUM('Matutino', 'Vespertino', 'Noturno', 'Diurno') NOT NULL,
   `curso_ID` INT UNSIGNED NOT NULL,
   INDEX `fk_aluno_usuario1_idx` (`usuario_ID` ASC),
   INDEX `fk_aluno_curso1_idx` (`curso_ID` ASC),
@@ -128,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`adm` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `usuario` VARCHAR(20) NOT NULL,
   `senha` VARCHAR(35) NOT NULL,
+  `permissao` TINYINT(1) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `ID_UNIQUE` (`ID` ASC))
 ENGINE = InnoDB;
@@ -138,6 +116,12 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
-INSERT INTO adm (usuario, senha) VALUES ('exa856', md5('pcemelhorqueconsole'));
-INSERT INTO adm (usuario, senha) VALUES ('profClaudio', md5('analisedesistemas856'));
-INSERT INTO adm (usuario, senha) VALUES ('grupoAvaliador', md5('avaliador856'));
+INSERT INTO adm (usuario, senha, permissao) VALUES ('exa856', md5('pcemelhorqueconsole'), 0);
+INSERT INTO adm (usuario, senha, permissao) VALUES ('profClaudio', md5('analisedesistemas856'), 1);
+INSERT INTO adm (usuario, senha, permissao) VALUES ('grupoAvaliador', md5('avaliador856'), 2);
+
+INSERT INTO curso (ID, nome) VALUES (1, 'Engenharia de Computação');
+INSERT INTO curso (ID, nome) VALUES (2, 'Ciência da Computação');
+INSERT INTO curso (ID, nome) VALUES (3, 'Sistemas da Informação');
+INSERT INTO curso (ID, nome) VALUES (4, 'Análise e Desenvolvimento de Sistemas');
+INSERT INTO curso (ID, nome) VALUES (5, 'Engenharia de Software');

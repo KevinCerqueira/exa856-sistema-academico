@@ -19,6 +19,7 @@ if($row == 1){
     $user = $resultado->fetch_assoc();
     $_SESSION['ID'] = $user['ID'];
     $_SESSION['NAME'] = $user['usuario'];
+    $_SESSION['PERMISS'] = $user['permissao'];
     header('Location: dashboard.php');
     exit();
 } else{

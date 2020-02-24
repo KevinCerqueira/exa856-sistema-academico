@@ -1,15 +1,7 @@
 <?php
-include(dirname(__FILE__) . '/template/_head.php');
+include('_head.php');
 include('autenticator.php');
 ?>
-<style>
-    @media only screen and (max-width: 999px) {
-        #corpo{
-            /* margin-top: 10%; */
-            padding: 3% !important;
-        }
-    }
-</style>
 <title>Dashboard</title>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
@@ -22,14 +14,15 @@ include('autenticator.php');
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
-                <a class="nav-item nav-link text-white active" href="dashboard.php">Início <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link text-light" href="cadastrar.php">Pagina do Aluno</a>
-                <a class="nav-item nav-link text-light" href="adm.php">Pagina do Administrador</a>
-                <a class="nav-item nav-link text-light" href="exit.php">Sair</a>
+                <a id="nav-first" class="nav-item nav-link text-white active btn btn-secondary border-20" href="dashboard.php">Início <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link text-light btn border-20" href="cadastrar_aluno.php">Cadastramento do Aluno</a>
+                <a class="nav-item nav-link text-light btn border-20" href="listar_aluno.php">Listagem de Alunos</a>
+                <a class="nav-item nav-link text-light btn border-20" href="adm.php">Página do Administrador</a>
+                <a class="nav-item nav-link text-light ml-4 text-dark btn btn-light border-10" href="exit.php">Sair</a>
             </div>
         </div>
     </nav>
-    <div id="corpo" class="container-fluid p-5">
+    <div class="corpo container-fluid p-5">
         <div class="container-fluid bg-white border-20 p-3">
             <?php
                 if($_SESSION['NAME'] == "profClaudio"):
@@ -43,6 +36,10 @@ include('autenticator.php');
                 elseif($_SESSION['NAME'] == "exa856"):
             ?>
                 <p class="h1">Olá, <strong>Criador desta página!</strong></p>
+            <?php
+                else:
+            ?>
+                <p class="h1">Olá, <strong><?php $_SESSION['NAME']?></strong></p>
             <?php
                 endif;
             ?>

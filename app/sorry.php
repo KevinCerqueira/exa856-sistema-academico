@@ -8,7 +8,7 @@ include('autenticator.php');
             <p class="h1 ml-1">Acesso restrito
                 <i class="fa fa-times" aria-hidden="true"></i>
             </p>
-            <p class="h4 ml-3">Desculpe, somente o prof. Cláudio tem acesso a esta página... (<a class="text-light" href="dashboard.php">VOLTAR</a>)</p>
+            <p class="h4 ml-3">Desculpe, você não tem acesso a esta página... (<a class="text-light" href="dashboard.php">VOLTAR</a>)</p>
         </div>
     </div>
 </body>
