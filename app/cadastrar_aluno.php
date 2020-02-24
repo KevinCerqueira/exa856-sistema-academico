@@ -19,7 +19,7 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
     margin-bottom: 6%;
 }
 </style>
-<title>SysAcademy - Cadastra-se</title>
+<title>SysAcademy - Cadastre-se</title>
 
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
