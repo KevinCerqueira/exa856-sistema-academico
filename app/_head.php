@@ -13,8 +13,6 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="https://kit.fontawesome.com/8dc881c5b9.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <link rel="icon" type="imagem/png" href="logo.png" />
     <style>
     .border-20 {

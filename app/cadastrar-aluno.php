@@ -7,9 +7,9 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
 // $cursos = $sql->fetch_array();
 ?>
 <style>
-#sn {
+/* #sn {
     margin-top: 45%;
-}
+} */
 
 #segunda-parte {
     margin-top: 5.4%;
@@ -42,14 +42,40 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
         </div>
     </nav>
     <div class="corpo container-fluid p-4">
-        <div class="container-fluid bg-white border-20 p-4">
+        <div onmousemove="verificaCampos()" class="container-fluid bg-white border-20 p-4">
+            <?php if(isset($_SESSION['cpfExistente'])):?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Este CPF já está cadastrado no sistema</strong>
+            </div>
+
+            <script>
+            $(".alert").alert();
+            </script>
+            <?php unset($_SESSION['cpfExistente']);?>
+            <?php elseif(isset($_SESSION['rgExistente'])):?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Este RG já está cadastrado no sistema</strong>
+            </div>
+
+            <script>
+            $(".alert").alert();
+            </script>
+            <?php unset($_SESSIO['rgExistente']);?>
+            <?php endif;?>
             <div class="row">
                 <div class="col-md-6">
                     <div class="cabeca">
                         <p class="h4 font-weight-light ms-auto ml-1 mt-1"><strong>Olá, estudante!</strong> falta pouco
                             para concluir seu cadastro...</p>
                     </div>
-                    <form name="cadastrarAluno" autocomplete="off" method="POST" action="cadastrar_aluno.php">
+
+                    <form method="POST" action="cadastrar_aluno.php" name="cadastrarAluno" autocomplete="off">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nome-aluno">Nome</label>
@@ -118,15 +144,17 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                             <input onchange="verificaCampos()" name="bairro" type="text" class="form-control"
                                 id="bairro" placeholder="Ex: Zona rural">
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="numero">Número</label>
-                            <input onchange="verificaCampos()" name="numero" minlength="1" maxlength="4" type="number"
-                                class="form-control" id="numero" placeholder="0000">
-                            <small hidden id="feedback-numero" class="text-danger">N° inválido</small>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <input onchange="verificaCampos()" type="checkbox" id="sn">
-                            <label name="numero" for="sn">S/N</label>
+                        <div class="col-md-4 row">
+                            <div class="form-group col-sm-8">
+                                <label for="numero">Número</label>
+                                <input onchange="verificaCampos()" name="numero" minlength="1" maxlength="4"
+                                    type="number" class="form-control" id="numero" placeholder="0000">
+                                <small hidden id="feedback-numero" class="text-danger">N° inválido</small>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="sn">S/N</label>
+                                <input name="sn" onchange="verificaCampos()" type="checkbox" id="sn">
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -136,8 +164,8 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                                 id="cidade" placeholder="Ex: Salvador">
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="inputState">Estado</label>
-                            <select name="estado" id="cidade" class="form-control">
+                            <label for="estado">Estado</label>
+                            <select name="estado" id="estado" class="form-control">
                                 <option selected>AC</option>
                                 <?php foreach($estados as $estado): ?>
                                 <option><?php echo $estado;?></option>
@@ -189,13 +217,15 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                             <small hidden id="feedback-senha" class="text-danger">As senhas devem ser iguais!</small>
                         </div>
                     </div>
-                    <button type="submit" class="mt-4 btn btn-success float-right">Cadastrar</button>
+                    <button hidden onselect="verificaCampos()" onmousewheel="verificaCampos()" id="cadastrar"
+                        type="submit" class="mt-4 btn btn-success float-right">Cadastrar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 <script>
 $(".nome-text").on("input", function() {
     var regexp = /[^a-zA-Z]/g;
@@ -243,16 +273,6 @@ $('#instituicao').change(function() {
         $('#sys2first').attr('selected', '');
     }
 });
-// $('#aioConceptName').find(":selected").text()
-
-$('form[name="cadastrarAluno"]').submit(function(e) {
-    e.preventDefault();
-    if (verificaCampos() == 0) {
-
-    } else {
-        return;
-    }
-});
 
 function verificaCampos() {
 
@@ -265,7 +285,7 @@ function verificaCampos() {
         $('#senha-v').addClass('is-invalid');
         $('#feedback-senha').removeAttr("hidden");
         trava++;
-    } else  {
+    } else {
         if ($('#senha-v').val().length < 6) {
             $('#senha-v').removeClass('is-valid');
             $('#senha-v').addClass('is-invalid');
@@ -282,10 +302,6 @@ function verificaCampos() {
             $('#senha').removeClass('is-invalid');
             $('#senha').addClass('is-valid');
         }
-        // $('#senha').removeClass('is-invalid');
-        // $('#senha-v').removeClass('is-invalid');
-        // $('#senha').addClass('is-valid');
-        // $('#senha-v').addClass('is-valid');
         $('#feedback-senha').attr("hidden", '');
     }
     // NOME
@@ -307,7 +323,7 @@ function verificaCampos() {
         $('#sobrenome').addClass('is-valid');
     }
     // telefone
-    if ($('#telefone').val() == "") {
+    if ($('#telefone').val().length < 14) {
         $('#telefone').removeClass('is-valid');
         $('#telefone').addClass('is-invalid');
         trava++;
@@ -316,7 +332,7 @@ function verificaCampos() {
         $('#telefone').addClass('is-valid');
     }
     // nascimento
-    if ($('#nascimento').val() == "") {
+    if ($('#nascimento').val().length < 10) {
         $('#nascimento').removeClass('is-valid');
         $('#nascimento').addClass('is-invalid');
         trava++;
@@ -325,7 +341,7 @@ function verificaCampos() {
         $('#nascimento').addClass('is-valid');
     }
     // cpf
-    if ($('#cpf').val() == "") {
+    if ($('#cpf').val().length < 14) {
         $('#cpf').removeClass('is-valid');
         $('#cpf').addClass('is-invalid');
         trava++;
@@ -334,7 +350,7 @@ function verificaCampos() {
         $('#cpf').addClass('is-valid');
     }
     // rg
-    if ($('#rg').val() == "") {
+    if ($('#rg').val().length < 12) {
         $('#rg').removeClass('is-valid');
         $('#rg').addClass('is-invalid');
         trava++;
@@ -409,7 +425,7 @@ function verificaCampos() {
         $('#feedback-numero').attr("hidden", '');
     }
     // cep
-    if ($('#cep').val() == "") {
+    if ($('#cep').val().length < 9) {
         $('#cep').removeClass('is-valid');
         $('#cep').addClass('is-invalid');
         trava++;
@@ -426,7 +442,12 @@ function verificaCampos() {
         $('#email').removeClass('is-invalid');
         $('#email').addClass('is-valid');
     }
-    return trava;
+    if (trava == 0) {
+        $('#cadastrar').removeAttr("hidden");
+    } else {
+        // $('#cadastrar').removeAttr("hidden");
+        $('#cadastrar').attr("hidden", '');
+    }
 }
 $('#sn').click(function(e) {
     if (!$('#sn').is(':checked')) {
