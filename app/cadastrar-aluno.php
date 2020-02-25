@@ -79,12 +79,12 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nome-aluno">Nome</label>
-                                <input onchange="verificaCampos()" name="nome" type="text"
+                                <input required onchange="verificaCampos()" name="nome" type="text"
                                     class="form-control nome-text" id="nome" placeholder="Nome" autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="sobrenome">Sobrenome</label>
-                                <input onchange="verificaCampos()" name="sobrenome" type="text"
+                                <input required onchange="verificaCampos()" name="sobrenome" type="text"
                                     class="form-control nome-text" id="sobrenome" placeholder="Sobrenome">
                             </div>
                         </div>
@@ -96,14 +96,14 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">+55</div>
                                     </div>
-                                    <input onchange="verificaCampos()" maxlength="16" minlength="16" type="text"
+                                    <input required onchange="verificaCampos()" maxlength="16" minlength="16" type="text"
                                         name="telefone" id="telefone" class="form-control"
                                         placeholder="(00) 0 0000-0000" aria-describedby="helpId">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="nascimento">Data de nascimento</label>
-                                <input onchange="verificaCampos()" maxlength="10" minlength="10" type="text"
+                                <input required onchange="verificaCampos()" maxlength="10" minlength="10" type="text"
                                     name="nascimento" id="nascimento" class="form-control" placeholder="00/00/0000"
                                     aria-describedby="helpId">
                             </div>
@@ -111,24 +111,24 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="cpf">CPF</label>
-                                <input onchange="verificaCampos()" minlength="14" maxlength="14" type="text" name="cpf"
+                                <input required onchange="verificaCampos()" minlength="14" maxlength="14" type="text" name="cpf"
                                     id="cpf" class="form-control cpf-mask" placeholder="000.000.000-00"
                                     aria-describedby="helpId">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="rg">RG</label>
-                                <input onchange="verificaCampos()" maxlength="12" minlength="12" type="text" name="rg"
+                                <input required onchange="verificaCampos()" maxlength="12" minlength="12" type="text" name="rg"
                                     id="rg" class="form-control" placeholder="00.000.000-0" aria-describedby="helpId">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="nome-mae">Nome completo da mãe</label>
-                            <input onchange="verificaCampos()" type="text" name="mae" id="mae"
+                            <input required onchange="verificaCampos()" type="text" name="mae" id="mae"
                                 class="form-control nome-text" placeholder="Nome da mãe" aria-describedby="helpId">
                         </div>
                         <div class="form-group">
                             <label for="nome-pai">Nome completo da pai</label>
-                            <input onchange="verificaCampos()" type="text" name="pai" id="pai"
+                            <input required onchange="verificaCampos()" type="text" name="pai" id="pai"
                                 class="form-control nome-text" placeholder="Nome da pai" aria-describedby="helpId">
                         </div>
                 </div>
@@ -136,18 +136,18 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label for="logradouro">Logradouro</label>
-                            <input onchange="verificaCampos()" name="logradouro" type="text" class="form-control"
+                            <input required onchange="verificaCampos()" name="logradouro" type="text" class="form-control"
                                 id="logradouro" placeholder="Ex: Rua Antônio Marinho Falcão">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="bairro">Bairro</label>
-                            <input onchange="verificaCampos()" name="bairro" type="text" class="form-control"
+                            <input required onchange="verificaCampos()" name="bairro" type="text" class="form-control"
                                 id="bairro" placeholder="Ex: Zona rural">
                         </div>
                         <div class="col-md-4 row">
                             <div class="form-group col-sm-8">
                                 <label for="numero">Número</label>
-                                <input onchange="verificaCampos()" name="numero" minlength="1" maxlength="4"
+                                <input required onchange="verificaCampos()" name="numero" minlength="1" maxlength="4"
                                     type="number" class="form-control" id="numero" placeholder="0000">
                                 <small hidden id="feedback-numero" class="text-danger">N° inválido</small>
                             </div>
@@ -160,7 +160,7 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="cidade">Cidade</label>
-                            <input onchange="verificaCampos()" name="cidade" type="text" class="form-control"
+                            <input required onchange="verificaCampos()" name="cidade" type="text" class="form-control"
                                 id="cidade" placeholder="Ex: Salvador">
                         </div>
                         <div class="form-group col-md-2">
@@ -174,7 +174,7 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                         </div>
                         <div class="form-group col-md-4">
                             <label for="cep">CEP</label>
-                            <input onchange="verificaCampos()" name="cep" type="text" class="form-control" id="cep"
+                            <input required onchange="verificaCampos()" name="cep" type="text" class="form-control" id="cep"
                                 placeholder="00000-000">
                         </div>
                     </div>
@@ -201,18 +201,18 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input onchange="verificaCampos()" name="email" type="email" class="form-control" id="email"
+                        <input required onchange="verificaCampos()" name="email" type="email" class="form-control" id="email"
                             placeholder="exemplo@exemplo.com" autocomplete="off">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="senha">Senha</label>
-                            <input onchange="verificaCampos()" name="senha" minlength="6" maxlength="8" type="password"
+                            <input required onchange="verificaCampos()" name="senha" minlength="6" maxlength="8" type="password"
                                 class="form-control" id="senha" placeholder="Senha">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="senha-v">Repita a senha</label>
-                            <input onchange="verificaCampos()" name="senha" minlength="6" maxlength="8" type="password"
+                            <input required onchange="verificaCampos()" name="senha" minlength="6" maxlength="8" type="password"
                                 class="form-control" id="senha-v" placeholder="Repita a senha">
                             <small hidden id="feedback-senha" class="text-danger">As senhas devem ser iguais!</small>
                         </div>
