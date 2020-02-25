@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`endereco` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `cep` VARCHAR(9) NOT NULL,
   `logradouro` VARCHAR(50) NOT NULL,
-  `numero` INT NOT NULL,
+  `numero` VARCHAR(6) NOT NULL,
   `bairro` VARCHAR(50) NOT NULL,
   `cidade` VARCHAR(50) NOT NULL,
   `estado` VARCHAR(2) NOT NULL,
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`usuario` (
   `email` VARCHAR(45) NOT NULL,
   `CPF` VARCHAR(14) NOT NULL,
   `RG` VARCHAR(12) NOT NULL,
+  `telefone` VARCHAR(16) NOT NULL,
   `endereco_ID` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
@@ -68,8 +69,15 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `epiz_25231414_sisacademico`.`curso` (
   `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
+  `instituicao_ID` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC))
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC),
+  INDEX `fk_curso_instituicao1_idx` (`instituicao_ID` ASC),
+  CONSTRAINT `fk_curso_instituicao1`
+    FOREIGN KEY (`instituicao_ID`)
+    REFERENCES `epiz_25231414_sisacademico`.`instituicao` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -120,8 +128,16 @@ INSERT INTO adm (usuario, senha, permissao) VALUES ('exa856', md5('pcemelhorquec
 INSERT INTO adm (usuario, senha, permissao) VALUES ('profClaudio', md5('analisedesistemas856'), 1);
 INSERT INTO adm (usuario, senha, permissao) VALUES ('grupoAvaliador', md5('avaliador856'), 2);
 
-INSERT INTO curso (ID, nome) VALUES (1, 'Engenharia de Computação');
-INSERT INTO curso (ID, nome) VALUES (2, 'Ciência da Computação');
-INSERT INTO curso (ID, nome) VALUES (3, 'Sistemas da Informação');
-INSERT INTO curso (ID, nome) VALUES (4, 'Análise e Desenvolvimento de Sistemas');
-INSERT INTO curso (ID, nome) VALUES (5, 'Engenharia de Software');
+INSERT INTO endereco (ID, cep, logradouro, numero, bairro, cidade, estado) VALUES (1, '44036-900', 'Avenida Transnordestina', 'S/N', 'Novo Horizonte', 'Feira de Santana', 'BA');
+INSERT INTO endereco (ID, cep, logradouro, numero, bairro, cidade, estado) VALUES (2, '45662-900', 'Rodovia Jorge Amado', 'S/N', 'Salobrinho', 'Ilhéus', 'BA');
+
+INSERT INTO instituicao (ID, nome, endereco_ID) VALUES (1, 'SysAcademy', 1);
+INSERT INTO instituicao (ID, nome, endereco_ID) VALUES (2, 'SysAcademy', 2);
+
+INSERT INTO curso (ID, nome, instituicao_ID) VALUES (1, 'Engenharia de Computação', 1);
+INSERT INTO curso (ID, nome, instituicao_ID) VALUES (2, 'Ciência da Computação', 1);
+INSERT INTO curso (ID, nome, instituicao_ID) VALUES (3, 'Sistemas da Informação', 1);
+INSERT INTO curso (ID, nome, instituicao_ID) VALUES (4, 'Análise e Desenvolvimento de Sistemas', 1);
+INSERT INTO curso (ID, nome, instituicao_ID) VALUES (5, 'Engenharia de Software', 2);
+INSERT INTO curso (ID, nome, instituicao_ID) VALUES (6, 'Engenharia de Computação', 2);
+INSERT INTO curso (ID, nome, instituicao_ID) VALUES (7, 'Redes de Computadores', 2);
