@@ -19,6 +19,7 @@ include('autenticador_level1.php');
                 <a class="nav-item nav-link text-light btn" href="cadastrar_aluno.php">Cadastramento do Aluno</a>
                 <a class="nav-item nav-link text-light btn" href="listar_aluno.php">Listagem de Alunos</a>
                 <a class="nav-item nav-link text-light text-white active btn btn-secondary border-20" href="adm.php">Página do Administrador</a>
+                <a class="nav-item ml-3 nav-link text-light btn border-20" href="boss.php">Boss</a>
                 <a class="nav-item nav-link text-light ml-4 text-dark btn btn-light border-10" href="exit.php">Sair</a>
             </div>
         </div>

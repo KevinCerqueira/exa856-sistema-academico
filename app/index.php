@@ -30,7 +30,7 @@ include ('_head.php');
             <div id="form-corpo" class="p-3 bg-white shadow border-20 mt-5">
                 <img id="logo" src="logo.png" alt="SysAcademy">
                 <p class="h3 text-dark">Sistema Acadêmico</p>
-                <p class="">Olá! Insira seu usuário e senha disponibilizado por nós.</p>
+                <p class="">Olá! Insira seu usuário e senha.</p>
                 <?php if(isset($_SESSION['invalid'])):?>
                     <div class="alert alert-danger" role="alert">
                         Usuário e/ou Senha incorretos.
