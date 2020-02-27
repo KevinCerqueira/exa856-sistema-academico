@@ -3,7 +3,14 @@ include('_head.php');
 include('chefao_page.php');
 ?>
 <title>BOSS</title>
-
+<style>
+    @media only screen and (max-width: 999px) {
+        .btn-ee{
+            margin-top: 1% !important;
+            margin-left: 0% !important;
+        }
+    }
+</style>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
         <a class="navbar-brand text-white" href="dashboard.php">
@@ -59,19 +66,19 @@ include('chefao_page.php');
                     <div class="form-row">
                         <div class="col-md-5 form-group">
                             <label for="nome-e">Usuário</label>
-                            <input required minlength="3" maxlength="15" type="text" id="nome-e" class="form-control"
+                            <input required minlength="3" maxlength="15" type="text" class="form-control"
                                 name="nome" value="<?php echo $adm[1];?>">
                         </div>
-                        <div class="col-md-5 form-group">
+                        <div class="col-md-4 form-group">
                             <label for="senha-e">Senha</label>
-                            <input  minlength="6" maxlength="19" type="password" id="senha-e"
+                            <input  minlength="6" maxlength="19" type="password"
                                 class="form-control" name="senha">
                         </div>
 
                         <div class="col-md-1 form-group">
                             <label for="permissao-e">Permissão</label>
 
-                            <select name="permissao" class="form-control" id="permissao-e">
+                            <select name="permissao" class="form-control" >
                                 <?php if($adm[3] == 0):?>
                                 <option value="0" selected>0</option>
                                 <option value="1">1</option>
@@ -87,9 +94,10 @@ include('chefao_page.php');
                                 <?php endif; ?>
                             </select>
                         </div>
-                        <div class="col-md-1">
-                            <button type="submit" class="border-20 btn btn-primary ml-4" style="margin-top: 35%;">
+                        <div class="col-md-2">
+                            <button type="submit" class="border-20 btn btn-primary ml-4 btn-ee" style="margin-top: 17%;">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
+                                editar
                             </button>
                         </div>
                     </div>
@@ -97,7 +105,7 @@ include('chefao_page.php');
                 </form>
                 <form action="excluir_adm.php" method="post">
                     <input name="ID" type="hidden" class="form-control" value="<?php echo $adm[0];?>">
-                    <button type="submit" class="border-20 btn btn-danger ml-2">
+                    <button type="submit" class="border-20 btn btn-danger ml-2 btn-ee">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                         excluir
                     </button>
@@ -138,7 +146,7 @@ include('chefao_page.php');
                             </select>
                         </div>
                         <div class="form-group col-md-1">
-                            <button type="submit" class="btn btn-success" style="margin-top: 35%;">
+                            <button type="submit" class="btn btn-success btn-ee" style="margin-top: 35%;">
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
                             </button>
                         </div>
