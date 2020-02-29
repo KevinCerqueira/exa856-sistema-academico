@@ -80,12 +80,14 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                             <div class="form-group col-md-6">
                                 <label for="nome-aluno">Nome</label>
                                 <input required onchange="verificaCampos()" name="nome" type="text"
-                                    class="form-control nome-text" id="nome" placeholder="Nome" autocomplete="off">
+                                    class="form-control nome-text" minlength="3" maxlength="15" id="nome"
+                                    placeholder="Nome" autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="sobrenome">Sobrenome</label>
                                 <input required onchange="verificaCampos()" name="sobrenome" type="text"
-                                    class="form-control nome-text" id="sobrenome" placeholder="Sobrenome">
+                                    class="form-control nome-text" minlength="3" maxlength="40" id="sobrenome"
+                                    placeholder="Sobrenome">
                             </div>
                         </div>
                         <div class="form-row">
@@ -96,8 +98,8 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">+55</div>
                                     </div>
-                                    <input required onchange="verificaCampos()" maxlength="16" minlength="16" type="text"
-                                        name="telefone" id="telefone" class="form-control"
+                                    <input required onchange="verificaCampos()" maxlength="16" minlength="16"
+                                        type="text" name="telefone" id="telefone" class="form-control"
                                         placeholder="(00) 0 0000-0000" aria-describedby="helpId">
                                 </div>
                             </div>
@@ -111,33 +113,35 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="cpf">CPF</label>
-                                <input required onchange="verificaCampos()" minlength="14" maxlength="14" type="text" name="cpf"
-                                    id="cpf" class="form-control cpf-mask" placeholder="000.000.000-00"
+                                <input required onchange="verificaCampos()" minlength="14" maxlength="14" type="text"
+                                    name="cpf" id="cpf" class="form-control cpf-mask" placeholder="000.000.000-00"
                                     aria-describedby="helpId">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="rg">RG</label>
-                                <input required onchange="verificaCampos()" maxlength="12" minlength="12" type="text" name="rg"
-                                    id="rg" class="form-control" placeholder="00.000.000-0" aria-describedby="helpId">
+                                <input required onchange="verificaCampos()" maxlength="12" minlength="12" type="text"
+                                    name="rg" id="rg" class="form-control" placeholder="00.000.000-0"
+                                    aria-describedby="helpId">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="nome-mae">Nome completo da mãe</label>
+                            <label for="mae">Nome completo da mãe</label>
                             <input required onchange="verificaCampos()" type="text" name="mae" id="mae"
-                                class="form-control nome-text" placeholder="Nome da mãe" aria-describedby="helpId">
+                                class="form-control nome-text" minlength="3" maxlength="70" placeholder="Nome da mãe">
                         </div>
                         <div class="form-group">
-                            <label for="nome-pai">Nome completo da pai</label>
+                            <label for="pai">Nome completo da pai</label>
                             <input required onchange="verificaCampos()" type="text" name="pai" id="pai"
-                                class="form-control nome-text" placeholder="Nome da pai" aria-describedby="helpId">
+                                class="form-control nome-text" minlength="3" maxlength="70" placeholder="Nome da pai">
+                            <input type="text" class="form-control">
                         </div>
                 </div>
                 <div class="col-md-6" id="segunda-parte">
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label for="logradouro">Logradouro</label>
-                            <input required onchange="verificaCampos()" name="logradouro" type="text" class="form-control"
-                                id="logradouro" placeholder="Ex: Rua Antônio Marinho Falcão">
+                            <input required onchange="verificaCampos()" name="logradouro" type="text"
+                                class="form-control" id="logradouro" placeholder="Ex: Rua Antônio Marinho Falcão">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="bairro">Bairro</label>
@@ -174,8 +178,8 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                         </div>
                         <div class="form-group col-md-4">
                             <label for="cep">CEP</label>
-                            <input required onchange="verificaCampos()" name="cep" type="text" class="form-control" id="cep"
-                                placeholder="00000-000">
+                            <input required onchange="verificaCampos()" name="cep" type="text" class="form-control"
+                                id="cep" placeholder="00000-000">
                         </div>
                     </div>
                     <div class="form-row">
@@ -201,19 +205,19 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input required onchange="verificaCampos()" name="email" type="email" class="form-control" id="email"
-                            placeholder="exemplo@exemplo.com" autocomplete="off">
+                        <input required onchange="verificaCampos()" name="email" type="email" class="form-control"
+                            id="email" placeholder="exemplo@exemplo.com" autocomplete="off">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="senha">Senha</label>
-                            <input required onchange="verificaCampos()" name="senha" minlength="6" maxlength="8" type="password"
-                                class="form-control" id="senha" placeholder="Senha">
+                            <input required onchange="verificaCampos()" name="senha" minlength="6" maxlength="8"
+                                type="password" class="form-control" id="senha" placeholder="Senha">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="senha-v">Repita a senha</label>
-                            <input required onchange="verificaCampos()" name="senha" minlength="6" maxlength="8" type="password"
-                                class="form-control" id="senha-v" placeholder="Repita a senha">
+                            <input required onchange="verificaCampos()" name="senha" minlength="6" maxlength="8"
+                                type="password" class="form-control" id="senha-v" placeholder="Repita a senha">
                             <small hidden id="feedback-senha" class="text-danger">As senhas devem ser iguais!</small>
                         </div>
                     </div>
@@ -228,7 +232,7 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
 
 <script>
 $(".nome-text").on("input", function() {
-    var regexp = /[^a-zA-Z]/g;
+    var regexp = /[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/g;
     if (this.value.match(regexp)) {
         $(this).val(this.value.replace(regexp, ''));
     }
@@ -434,13 +438,20 @@ function verificaCampos() {
         $('#cep').addClass('is-valid');
     }
     // email
-    if ($('#email').val() == "") {
+    email = $('#email').val();
+    if (email == "") {
         $('#email').removeClass('is-valid');
         $('#email').addClass('is-invalid');
         trava++;
     } else {
-        $('#email').removeClass('is-invalid');
-        $('#email').addClass('is-valid');
+        if (email.includes('@')) {
+            $('#email').removeClass('is-invalid');
+            $('#email').addClass('is-valid');
+        } else {
+            $('#email').removeClass('is-valid');
+            $('#email').addClass('is-invalid');
+        }
+
     }
     if (trava == 0) {
         $('#cadastrar').removeAttr("hidden");

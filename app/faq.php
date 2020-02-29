@@ -16,7 +16,7 @@ include('autenticator.php');
             <div class="navbar-nav">
                 <a id="nav-first" class="nav-item ml-3 nav-link text-light btn border-20" href="dashboard.php">Início <span class="sr-only">(current)</span></a>
                 <a class="nav-item ml-3 nav-link text-light btn border-20" href="cadastrar-aluno.php">Cadastramento do Aluno</a>
-                <a class="nav-item ml-3 nav-link text-light btn border-20" href="listar-aluno.php">Listagem de Alunos</a>
+                <a class="nav-item ml-3 nav-link text-light btn border-20" href="listar_aluno.php">Listagem de Alunos</a>
                 <a class="nav-item ml-3 nav-link text-light btn border-20" href="adm.php">Página do Administrador</a>
                 <a class="nav-item ml-3 nav-link text-light btn border-20" href="boss.php">Boss</a>
                 <a class="nav-item ml-3 nav-link text-white active btn btn-secondary border-20" href="faq.php">Perguntas Frequentes</a>

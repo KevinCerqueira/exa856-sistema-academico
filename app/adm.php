@@ -32,7 +32,7 @@ c.nome as nome_curso, i.nome as nome_intituicao, end_i.estado as estado_i, end_i
                 <a id="nav-first" class="nav-item nav-link text-light btn" href="dashboard.php">Início <span
                         class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link text-light btn" href="cadastrar_aluno.php">Cadastramento do Aluno</a>
-                <a class="nav-item nav-link text-light btn" href="listar-aluno.php">Listagem de Alunos</a>
+                <a class="nav-item nav-link text-light btn" href="listar_aluno.php">Listagem de Alunos</a>
                 <a class="nav-item nav-link text-light text-white active btn btn-secondary border-20"
                     href="adm.php">Página do Administrador</a>
                 <a class="nav-item ml-3 nav-link text-light btn border-20" href="boss.php">Boss</a>

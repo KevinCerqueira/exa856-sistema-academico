@@ -123,11 +123,6 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-
-INSERT INTO adm (usuario, senha, permissao) VALUES ('exa856', md5('pcemelhorqueconsole'), 0);
-INSERT INTO adm (usuario, senha, permissao) VALUES ('profClaudio', md5('analisedesistemas856'), 1);
-INSERT INTO adm (usuario, senha, permissao) VALUES ('grupoAvaliador', md5('avaliador856'), 2);
-
 INSERT INTO endereco (ID, cep, logradouro, numero, bairro, cidade, estado) VALUES (1, '44036-900', 'Avenida Transnordestina', 'S/N', 'Novo Horizonte', 'Feira de Santana', 'BA');
 INSERT INTO endereco (ID, cep, logradouro, numero, bairro, cidade, estado) VALUES (2, '45662-900', 'Rodovia Jorge Amado', 'S/N', 'Salobrinho', 'Ilhéus', 'BA');
 
