@@ -15,7 +15,7 @@ include('chefao_page.php');
     <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
         <a class="navbar-brand text-white" href="dashboard.php">
             <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            BOSS
+            Sistema Acadêmico
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,6 +29,7 @@ include('chefao_page.php');
                 <a class="nav-item nav-link text-light btn border-20" href="listar_aluno.php">Listagem de Alunos</a>
                 <a class="nav-item nav-link text-light btn border-20" href="adm.php">Página do Administrador</a>
                 <a class="nav-item ml-3 nav-link text-light btn text-white active  btn-secondary border-20" href="boss.php">Boss</a>
+                <a class="nav-item ml-3 nav-link text-light btn border-20" href="faq.php">Perguntas Frequentes</a>
                 <a class="nav-item nav-link text-light ml-4 text-dark btn btn-light border-10" href="exit.php">Sair</a>
             </div>
         </div>

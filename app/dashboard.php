@@ -19,6 +19,7 @@ include('autenticator.php');
                 <a class="nav-item ml-3 nav-link text-light btn border-20" href="listar-aluno.php">Listagem de Alunos</a>
                 <a class="nav-item ml-3 nav-link text-light btn border-20" href="adm.php">Página do Administrador</a>
                 <a class="nav-item ml-3 nav-link text-light btn border-20" href="boss.php">Boss</a>
+                <a class="nav-item ml-3 nav-link text-light btn border-20" href="faq.php">Perguntas Frequentes</a>
                 <a class="nav-item ml-3 nav-link text-light ml-4 text-dark btn btn-light border-10" href="exit.php">Sair</a>
             </div>
         </div>
@@ -50,6 +51,9 @@ include('autenticator.php');
                 <p class="h6">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                     Aqui você vai encontrar: </p>
+                <p class="h6 ml-3"> <i class="fa fa-circle" aria-hidden="true" style="font-size: 11px;"></i>
+                    <a href="faq.php">Perguntas Frequentes:</a> é onde encontra-se dúvidas comuns e suas devidas respostas.
+                </p>
                 <p class="h6 ml-3"><i class="fa fa-circle" aria-hidden="true" style="font-size: 11px;"></i>
                     <a href="cadastrar.php">Página do Aluno</a>: é onde o Aluno irá se cadastrar, ou seja, é o trabalho em si requerido pelo professor: 
                     uma tela de cadastro para o aluno se cadastrar.</p>
