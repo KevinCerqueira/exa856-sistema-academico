@@ -358,16 +358,7 @@ $(document).ready(function($) {
         $(".corpo-modal").unbind('click')
 
     });
-    $(document).keypress(function(e){
-        e.preventDefault()
-        if(evt.key === "Tab"){
-            alert('A tecla tab foi pressionada');
-        verificaCampos()
-        }
-	
-       
-	
-  })
+
 
     $(document).on('click', '#btnEditar', e => {
         e.preventDefault()
