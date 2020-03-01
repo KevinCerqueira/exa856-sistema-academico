@@ -42,13 +42,9 @@ c.nome as nome_curso, i.nome as nome_intituicao, end_i.estado as estado_i, end_i
         </div>
     </nav>
     <div class="corpo container-fluid p-5">
-        <div class="container-fluid bg-white border-20 p-0">
-            <p class="h2">Página do Administrador</p>
-        </div>
-    </div>
-    <!-- CONTEUDO -->
     <div conteudo class="container-fluid bg-white p-4"
         style="border-bottom-right-radius:30px;border-bottom-left-radius:30px;border-top-right-radius:30px;border-top-left-radius:30px">
+        <p class="h3 ml-2 mb-3">Dashboard do ADM</p>
         <div class="container-fluid">
             <div id="parte-top">
                 <div class="cadastrar-turma">
@@ -96,7 +92,8 @@ c.nome as nome_curso, i.nome as nome_intituicao, end_i.estado as estado_i, end_i
                                                 data-detalhe='<?=json_encode($valor);?>'>
                                                 <i class="fas fa-pen"></i>
                                             </button>
-                                            <button type="submit" class="btn btn-danger" name="user" value='<?=json_encode($valor);?>'>
+                                            <button type="submit" class="btn btn-danger" name="user"
+                                                value='<?=json_encode($valor);?>'>
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>
@@ -114,6 +111,9 @@ c.nome as nome_curso, i.nome as nome_intituicao, end_i.estado as estado_i, end_i
         </div>
     </div>
     </div>
+    <!-- CONTEUDO -->
+    
+
     <!-- MODAL EXIBIR DADOS DOS ALUNO-->
     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
         aria-hidden="true">
@@ -365,7 +365,7 @@ $(document).ready(function($) {
         $(".corpo-modal").click(e => {
             $(e.currentTarget).mousemove(verificaCampos());
         })
-        $(".corpo-modal").click(e=>{
+        $(".corpo-modal").click(e => {
             $(e.currentTarget).keypress(verificaCampos());
             $(e.currentTarget).keydown(verificaCampos());
         })

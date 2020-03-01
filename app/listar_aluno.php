@@ -43,12 +43,11 @@ c.nome as nome_curso, i.nome as nome_intituicao, end_i.estado as estado_i, end_i
     </nav>
     <div class="corpo container-fluid p-5">
         <div class="container-fluid bg-white border-20 p-0">
-            <p class="h2">Listagem de Alunos</p>
-        </div>
-    </div>
-    <!-- CONTEUDO -->
+            <!-- CONTEUDO -->
     <div conteudo class="container-fluid bg-white p-4"
         style="border-bottom-right-radius:30px;border-bottom-left-radius:30px;border-top-right-radius:30px;border-top-left-radius:30px">
+        <p class="h3 ml-2 mb-3">Listagem de alunos cadastrados</p>
+        
         <div class="container-fluid">
             <div id="parte-top">
                 <div class="cadastrar-turma">
@@ -105,7 +104,9 @@ c.nome as nome_curso, i.nome as nome_intituicao, end_i.estado as estado_i, end_i
             </div>
         </div>
     </div>
+        </div>
     </div>
+
     <!-- MODAL EXIBIR DADOS DOS ALUNO-->
     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
         aria-hidden="true">
