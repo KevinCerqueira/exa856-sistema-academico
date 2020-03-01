@@ -2,3 +2,4 @@
 connection.php
 env.ini
 BD/povoamento_adm.sql
+BD/bd_free.sql
