@@ -133,7 +133,6 @@ $estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'M
                             <label for="pai">Nome completo da pai</label>
                             <input required onchange="verificaCampos()" type="text" name="pai" id="pai"
                                 class="form-control nome-text" minlength="3" maxlength="70" placeholder="Nome da pai">
-                            <input type="text" class="form-control">
                         </div>
                 </div>
                 <div class="col-md-6" id="segunda-parte">
