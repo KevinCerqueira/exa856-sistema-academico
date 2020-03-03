@@ -1,6 +1,7 @@
 <?php
 include('_head.php');
 include('chefao_page.php');
+include('autenticador_level0.php');
 ?>
 <title>BOSS</title>
 <style>
